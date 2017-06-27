@@ -1,0 +1,14 @@
+config:
+  target: "https://app8-socket.bullhornstaffing.com"
+  phases:
+    - duration: 1000
+      arrivalRate: 10
+
+scenarios:
+  - name: "Register"
+    engine: "socketio"
+    flow:
+      -
+        emit:
+          channel: "register"
+          data: "1-1"

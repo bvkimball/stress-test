@@ -1,0 +1,14 @@
+{
+  "name": "stress-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "DEBUG=socketio artillery run app8-socket-stress.yaml"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "artillery": "^1.6.0-2"
+  }
+}
