@@ -1,14 +1,87 @@
 config:
   target: "https://app8-socket.bullhornstaffing.com"
   phases:
-    - duration: 1000
-      arrivalRate: 10
+    - name: "Consistent Pace"
+      duration: 360
+      arrivalCount: 1000
+  payload:
+    path: "payload.csv"
+    fields:
+      - "corporation"
+      - "user"
 
 scenarios:
   - name: "Register"
     engine: "socketio"
+    weight: 10
     flow:
       -
         emit:
           channel: "register"
-          data: "1-1"
+          data: "{{ corporation }}-{{ user }}"
+      - think: 360
+  - name: "High Use"
+    engine: "socketio"
+    weight: 1
+    flow:
+      - emit:
+          channel: "register"
+          data: "{{ corporation }}-{{ user }}"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      - emit:
+          channel: "message"
+          data: "TEST"
+      - think: 10
+      

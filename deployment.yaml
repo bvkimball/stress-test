@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: socket-stress-daemon
+spec:
+  template:
+    metadata:
+      labels:
+        name: socket-stress-daemon
+    spec:
+      containers:
+        - image: us.gcr.io/artillery-tests/socket-stress:0.0.9
+          imagePullPolicy: Always
+          name: socket-stress
+          ports:
+            - containerPort: 3000
+              hostPort: 3000
